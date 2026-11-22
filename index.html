@@ -4,251 +4,390 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101827">
 <title>ERLC Roblox Development Hub</title>
+
 <style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#131f31;--panel2:#1b2b42;--line:#2c405b;--text:#edf4ff;--muted:#a9bad0;--blue:#4ea1ff;--green:#36c78a}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(145deg,#0b1220,#101c2d 60%,#0b1220);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
-header{padding:42px 18px 30px;text-align:center;background:radial-gradient(ellipse at top,#1c4771 0,transparent 65%)}
-.logo{font-size:13px;letter-spacing:.16em;color:#8ec7ff;font-weight:800}
-.hero{max-width:850px;margin:auto}
-h1{font-size:clamp(30px,6vw,52px);line-height:1.08;margin:12px 0}
-header p{color:var(--muted);max-width:650px;margin:12px auto 20px}
-.wrap{max-width:1050px;margin:auto;padding:18px}
-.notice{border:1px solid #715f2b;background:#332b16;color:#ffe7a1;border-radius:12px;padding:12px 14px;margin:0 auto 18px;max-width:1000px;font-size:14px}
-nav{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin:18px 0 28px}
-button,.btn{border:0;border-radius:10px;padding:11px 15px;background:var(--blue);color:#071526;font-weight:750;cursor:pointer;text-decoration:none}
-button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
-button:hover,.btn:hover{filter:brightness(1.12)}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #8ec7ff;outline-offset:2px}
-h2{font-size:24px;margin:0 0 14px}
-.panel{background:rgba(19,31,49,.94);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px;box-shadow:0 12px 35px #0003}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-label{font-weight:650;color:#dceaff}
-input,select,textarea{width:100%;background:#0b1524;border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);font:inherit}
-textarea{min-height:85px;resize:vertical}
-.muted{color:var(--muted);font-size:14px}
-.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}
-.toolbar input{flex:1;min-width:180px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
-.card{background:#0d1929;border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}
-.tag{display:inline-block;border:1px solid #38638d;background:#132d49;color:#a9d5ff;padding:3px 8px;border-radius:30px;font-size:12px}
-.code{font-family:ui-monospace,monospace;overflow-wrap:anywhere;background:#07111e;border:1px solid var(--line);border-radius:8px;padding:9px;margin:8px 0}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.actions button{font-size:13px;padding:8px 10px}
-.empty{text-align:center;padding:28px;color:var(--muted)}
-footer{text-align:center;padding:26px;color:var(--muted);font-size:13px}
+:root {
+  color-scheme: dark;
+  --line: #2c405b;
+  --text: #edf4ff;
+  --muted: #a9bad0;
+  --blue: #4ea1ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b1220;
+  color: var(--text);
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+header {
+  text-align: center;
+  padding: 42px 18px;
+  background: radial-gradient(ellipse at top, #1c4771, transparent 65%);
+}
+
+.hero {
+  max-width: 850px;
+  margin: auto;
+}
+
+.logo {
+  color: #8ec7ff;
+  letter-spacing: .16em;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: clamp(30px, 6vw, 52px);
+  line-height: 1.08;
+}
+
+header p, .muted {
+  color: var(--muted);
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: auto;
+  padding: 18px;
+}
+
+.notice, .panel {
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.notice {
+  background: #332b16;
+  color: #ffe7a1;
+}
+
+.panel, .card {
+  background: #131f31;
+  border: 1px solid var(--line);
+}
+
+.grid, .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  background: #0b1524;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 11px;
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  min-height: 85px;
+}
+
+button, .btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 15px;
+  background: var(--blue);
+  color: #071526;
+  font-weight: 750;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.toolbar, nav {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.toolbar input {
+  flex: 1;
+  min-width: 160px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.tag {
+  color: #a9d5ff;
+}
+
+.empty {
+  text-align: center;
+  padding: 25px;
+  color: var(--muted);
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--muted);
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<div class="hero">
-<div class="logo">COMMUNITY • CREATION • SHARING</div>
-<h1>ERLC Roblox<br>Development Hub</h1>
-<p>Discover and share Emergency Response: Liberty County development projects, including uniforms, liveries, ELS concepts, map layouts and more.</p>
-<a class="btn" href="#projects">Explore projects</a>
-</div>
+  <div class="hero">
+    <div class="logo">COMMUNITY • CREATION • SHARING</div>
+    <h1>ERLC Roblox<br>Development Hub</h1>
+    <p>
+      Discover and share Emergency Response: Liberty County development
+      projects, including uniforms, liveries, ELS concepts, map layouts
+      and more.
+    </p>
+    <a class="btn" href="#projects">Explore projects</a>
+  </div>
 </header>
 
 <main class="wrap">
-<div class="notice"><strong>Free community demo:</strong> This version stores submissions in this browser only. It does not connect to ERLC servers or share data between visitors. Never post passwords, private keys or personal information.</div>
 
-<nav>
-<a class="btn" href="#projects">Projects</a>
-<a class="btn" href="#submit">Submit a project</a>
-<a class="btn" href="#redeem">Redeem a code</a>
-</nav>
+  <div class="notice">
+    <b>Community safety:</b>
+    Submissions are shared after staff approval. Never submit passwords,
+    private information, secret keys, or codes you do not have permission
+    to share.
+  </div>
 
-<section id="projects" class="panel">
-<h2>Community projects</h2>
-<div class="toolbar">
-<input id="search" placeholder="Search projects…" aria-label="Search projects">
-<select id="filter" aria-label="Filter category">
-<option value="All">All categories</option>
-<option>Uniforms</option>
-<option>Liveries</option>
-<option>ELS</option>
-<option>Map layouts</option>
-<option>Other</option>
-</select>
-</div>
-<div id="projectList" class="cards">
-<div class="empty">No projects yet. Be the first to submit one!</div>
-</div>
-</section>
+  <nav>
+    <a class="btn" href="#projects">Projects</a>
+    <a class="btn" href="#submit">Submit a project</a>
+  </nav>
 
-<section id="submit" class="panel">
-<h2>Submit a project</h2>
-<p class="muted">Share a project with the community. Use only links and codes you have permission to share.</p>
-<form id="projectForm">
-<div class="grid">
-<div class="field">
-<label for="name">Project name</label>
-<input id="name" required maxlength="70" placeholder="Example: City Police Livery Pack">
-</div>
-<div class="field">
-<label for="category">Category</label>
-<select id="category">
-<option>Uniforms</option>
-<option>Liveries</option>
-<option>ELS</option>
-<option>Map layouts</option>
-<option>Other</option>
-</select>
-</div>
-</div>
-<div class="field">
-<label for="description">Description</label>
-<textarea id="description" required maxlength="500" placeholder="Describe what your project includes…"></textarea>
-</div>
-<div class="grid">
-<div class="field">
-<label for="install">Installation / asset information code</label>
-<input id="install" required maxlength="120" placeholder="Paste your shareable code">
-</div>
-<div class="field">
-<label for="redeem">Optional redeem code</label>
-<input id="redeem" maxlength="40" placeholder="Leave blank for no redeem code">
-</div>
-</div>
-<div class="field">
-<label for="creator">Creator name (display name only)</label>
-<input id="creator" maxlength="40" placeholder="Your creator name">
-</div>
-<button type="submit">Publish project in this browser</button>
-</form>
-</section>
+  <section id="projects" class="panel">
+    <h2>Approved community projects</h2>
 
-<section id="redeem" class="panel">
-<h2>Redeem a project code</h2>
-<p class="muted">Enter the redeem code supplied by a project creator to reveal that project's installation information.</p>
-<form id="redeemForm">
-<div class="field">
-<label for="redeemInput">Redeem code</label>
-<input id="redeemInput" required placeholder="Enter redeem code">
-</div>
-<button type="submit">Redeem code</button>
-</form>
-<p id="redeemResult" role="status" class="muted"></p>
-</section>
+    <div class="toolbar">
+      <input id="search" placeholder="Search projects">
+
+      <select id="filter">
+        <option>All</option>
+        <option>Uniforms</option>
+        <option>Liveries</option>
+        <option>ELS</option>
+        <option>Map Layouts</option>
+        <option>Other</option>
+      </select>
+
+      <button id="refresh">Refresh</button>
+    </div>
+
+    <div id="projectList" class="cards">
+      <div class="empty">Loading projects…</div>
+    </div>
+
+    <p id="status" class="muted" role="status"></p>
+  </section>
+
+  <section id="submit" class="panel">
+    <h2>Submit a project</h2>
+
+    <p class="muted">
+      Submissions wait for staff approval before appearing publicly.
+    </p>
+
+    <form id="projectForm">
+
+      <div class="grid">
+        <div class="field">
+          <label>
+            Project name
+            <input id="title" required maxlength="70">
+          </label>
+        </div>
+
+        <div class="field">
+          <label>
+            Category
+            <select id="category">
+              <option>Uniforms</option>
+              <option>Liveries</option>
+              <option>ELS</option>
+              <option>Map Layouts</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>
+          Description
+          <textarea id="description" required maxlength="500"></textarea>
+        </label>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label>
+            Creator display name
+            <input id="creator" required maxlength="40">
+          </label>
+        </div>
+
+        <div class="field">
+          <label>
+            Optional project link
+            <input id="projectLink" type="url" placeholder="https://…">
+          </label>
+        </div>
+      </div>
+
+      <button id="submitButton">Submit for review</button>
+    </form>
+
+    <p id="submitStatus" class="muted" role="status"></p>
+  </section>
+
 </main>
 
-<footer>ERLC Roblox Development Hub • Independent community showcase, not affiliated with Roblox or the ERLC developers.</footer>
+<footer>
+  Independent community showcase, not affiliated with Roblox or ERLC developers.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const KEY='erlcDevHubProjectsV1';
-const $=id=>document.getElementById(id);
+const SUPABASE_URL =
+  'https://imlxygfidydlpncujcrw.supabase.co';
 
-const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SUPABASE_PUBLISHABLE_KEY =
+  'sb_publishable_f8ZlZe0tR_WMJennMvErnA_BZ9C2QqN';
 
-const getProjects=()=>{
-try{return JSON.parse(localStorage.getItem(KEY)||'[]')}
-catch{return []}
-};
-
-const saveProjects=p=>localStorage.setItem(KEY,JSON.stringify(p));
-
-function render(){
-const q=$('search').value.toLowerCase();
-const cat=$('filter').value;
-
-const list=getProjects().filter(p=>
-(cat==='All'||p.category===cat)&&
-(`${p.name} ${p.description} ${p.creator}`.toLowerCase().includes(q))
+const client = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
 );
 
-$('projectList').innerHTML=list.length?list.map(p=>`
-<article class="card">
-<span class="tag">${safe(p.category)}</span>
-<h3>${safe(p.name)}</h3>
-<p>${safe(p.description)}</p>
-<p class="muted">Creator: ${safe(p.creator||'Community member')}</p>
-<p class="muted">Product ID: ${safe(p.id)}</p>
-<div class="code" id="code-${safe(p.id)}">${p.redeem&&!p.unlocked?'Installation information locked — redeem the creator code.':safe(p.install)}</div>
-<div class="actions">
-<button class="secondary" data-copy="${safe(p.id)}" ${p.redeem&&!p.unlocked?'disabled':''}>Copy installation info</button>
-<button class="secondary" data-like="${safe(p.id)}">Like (${p.likes||0})</button>
-</div>
-</article>
-`).join(''):'<div class="empty">No matching projects yet.</div>';
+const $ = id => document.getElementById(id);
+
+let projects = [];
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+}[c]));
+
+function render() {
+  const q = $('search').value.toLowerCase();
+  const cat = $('filter').value;
+
+  const rows = projects.filter(p =>
+    (cat === 'All' || p.category === cat) &&
+    (`${p.title} ${p.description} ${p.creator_name}`
+      .toLowerCase().includes(q))
+  );
+
+  $('projectList').innerHTML = rows.length
+    ? rows.map(p => `
+      <article class="card">
+        <span class="tag">${esc(p.category)}</span>
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.description)}</p>
+        <p class="muted">Creator: ${esc(p.creator_name)}</p>
+        ${p.project_link
+          ? `<a href="${esc(p.project_link)}"
+               target="_blank"
+               rel="noopener noreferrer">Open project link</a>`
+          : ''}
+      </article>
+    `).join('')
+    : '<div class="empty">No approved projects match your search yet.</div>';
 }
 
-$('projectForm').addEventListener('submit',e=>{
-e.preventDefault();
-const p=getProjects();
-const id='ERLC-'+Math.random().toString(36).slice(2,8).toUpperCase();
+async function loadProjects() {
+  $('status').textContent = 'Loading shared projects…';
 
-p.unshift({
-id,
-name:$('name').value.trim(),
-category:$('category').value,
-description:$('description').value.trim(),
-install:$('install').value.trim(),
-redeem:$('redeem').value.trim(),
-creator:$('creator').value.trim(),
-likes:0,
-unlocked:false
+  const { data, error } = await client
+    .from('projects')
+    .select('id,title,category,description,creator_name,project_link,created_at')
+    .eq('status', 'approved')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    $('status').textContent =
+      'Could not load projects: ' + error.message;
+    return;
+  }
+
+  projects = data || [];
+  render();
+
+  $('status').textContent =
+    `Showing ${projects.length} approved shared project(s).`;
+}
+
+$('projectForm').addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const b = $('submitButton');
+  b.disabled = true;
+  $('submitStatus').textContent = 'Submitting…';
+
+  const link = $('projectLink').value.trim();
+
+  const payload = {
+    title: $('title').value.trim(),
+    category: $('category').value,
+    description: $('description').value.trim(),
+    creator_name: $('creator').value.trim(),
+    project_link: link || null,
+    status: 'pending'
+  };
+
+  const { error } = await client
+    .from('projects')
+    .insert(payload);
+
+  b.disabled = false;
+
+  if (error) {
+    $('submitStatus').textContent =
+      'Submission failed: ' + error.message;
+    return;
+  }
+
+  e.target.reset();
+
+  $('submitStatus').textContent =
+    'Submitted! Your project is waiting for staff approval.';
+
+  await loadProjects();
 });
 
-saveProjects(p);
-e.target.reset();
-render();
-alert('Project added to this browser. It is not yet visible to other visitors.');
-location.hash='projects';
-});
+$('search').addEventListener('input', render);
+$('filter').addEventListener('change', render);
+$('refresh').addEventListener('click', loadProjects);
 
-$('redeemForm').addEventListener('submit',e=>{
-e.preventDefault();
-const code=$('redeemInput').value.trim().toLowerCase();
-const p=getProjects();
-const found=p.find(x=>x.redeem&&x.redeem.toLowerCase()===code);
-
-if(!found){
-$('redeemResult').textContent='That code was not found in this browser.';
-return;
-}
-
-found.unlocked=true;
-saveProjects(p);
-$('redeemResult').textContent=`Code accepted for ${found.name}. Its installation information is now unlocked below.`;
-render();
-});
-
-document.addEventListener('click',async e=>{
-const c=e.target.closest('[data-copy]');
-
-if(c){
-const p=getProjects().find(x=>x.id===c.dataset.copy);
-if(!p)return;
-
-try{
-await navigator.clipboard.writeText(p.install);
-c.textContent='Copied!';
-}catch{
-alert('Copy is unavailable in this browser. Select the code text and copy it manually.');
-}
-}
-
-const l=e.target.closest('[data-like]');
-
-if(l){
-const p=getProjects();
-const item=p.find(x=>x.id===l.dataset.like);
-
-if(item){
-item.likes=(item.likes||0)+1;
-saveProjects(p);
-render();
-}
-}
-});
-
-$('search').addEventListener('input',render);
-$('filter').addEventListener('change',render);
-render();
+loadProjects();
 </script>
+
 </body>
 </html>
-
